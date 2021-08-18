@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(github_pull_requests)
+project(github_pull_requests C CXX)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(${PROJECT_NAME} 
     main.c
