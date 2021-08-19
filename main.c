@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <lcd1602.h>
+#include "lcd1602.h"
 
 int main() {
     int rc;

@@ -9,5 +9,5 @@ set(LCD1602_FILES "libs/LCD1602/lcd1602.c")
 include_directories(libs/LCD1602)
 
 add_executable(${PROJECT_NAME} 
-    main.c ${LCD1602_FILES}
+    main.c pull_request.c display.c ${LCD1602_FILES}
 )
