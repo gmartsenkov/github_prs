@@ -5,6 +5,9 @@ project(github_pull_requests C CXX)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
+set(LCD1602_FILES "libs/LCD1602/lcd1602.c")
+include_directories(libs/LCD1602)
+
 add_executable(${PROJECT_NAME} 
-    main.c
+    main.c ${LCD1602_FILES}
 )
