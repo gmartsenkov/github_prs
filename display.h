@@ -9,6 +9,7 @@
 typedef struct DiplayRow {
     uint8_t scroll_position;
     char *text;
+    char display[DISPLAY_CHARACTER_SIZE];
 } DisplayRow;
 
 char* display_row_text(DisplayRow *dr);
