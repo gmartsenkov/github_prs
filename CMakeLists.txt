@@ -11,3 +11,8 @@ include_directories(libs/LCD1602)
 add_executable(${PROJECT_NAME} 
     main.c pull_request.c display.c ${LCD1602_FILES}
 )
+
+add_library(display
+    display.c 
+)
+target_include_directories(display PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -1,10 +1,13 @@
-#include <stdint.h>
+#include <string.h>
+#include "display.h"
 
-typedef struct Display {
-    char row_1[16];
-    char *row_1_text;
-    uint8_t row_1_position;
+char* display_row_text(DisplayRow *dr)
+{
+    unsigned int text_len = strlen(dr->text);
+    dr->text + (dr->scroll_position % text_len);
+}
 
-    char row_2[16];
-    char *row_2_text;
-} Display;
+void display_row_scroll(DisplayRow *dr) 
+{
+    dr->scroll_position++;
+}
