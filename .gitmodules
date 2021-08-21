@@ -1,0 +1,7 @@
+[submodule "LCD1602"]
+	path = libs/LCD1602
+	url = https://github.com/bitbank2/LCD1602.git
+
+[submodule "googletest"]
+	path = tests/lib/googletest
+	url = https://github.com/google/googletest.git
