@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 #include "lcd1602.h"
 #include "display.h"
 
@@ -13,11 +14,20 @@ int main() {
         return 1;
     }
 
-    lcd1602WriteString("Hello");
-    lcd1602SetCursor(0, 1);
-    lcd1602WriteString("World");
+    DisplayRow dr;
+    display_row_init(&dr, "A really long string");
+
+
     lcd1602Control(1,0,1);
 
-    getchar();
+    while(1) {
+        lcd1602SetCursor(0, 0);
+        lcd1602WriteString(display_row_text(&dr));
+
+        display_row_scroll(&dr);
+        usleep(500 * 1000);
+    }
+
+    lcd1602Clear();
     lcd1602Shutdown();
 }
