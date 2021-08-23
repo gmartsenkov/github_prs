@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <signal.h>
 #include "lcd1602.h"
 #include "display.h"
+
+static volatile int keep_running = 1;
+
+void int_handler(int i)
+{
+    keep_running = 0;
+}
 
 int main() {
     int rc;
@@ -20,7 +28,9 @@ int main() {
 
     lcd1602Control(1,0,1);
 
-    while(1) {
+    signal(SIGINT, int_handler);
+
+    while(keep_running) {
         lcd1602SetCursor(0, 0);
         lcd1602WriteString(display_row_text(&dr));
 
